@@ -1,9 +1,10 @@
-from langchain.vectorstores import FAISS
+  GNU nano 8.1                                         rag_utils.py                                                   
+from langchain_community.vectorstores import FAISS
+from langchain_community.llms import Ollama
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
 from langchain.chains import RetrievalQA
-from langchain.llms import Ollama
 
 def embed_text(text: str):
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
@@ -14,5 +15,5 @@ def embed_text(text: str):
 
 def get_rag_chain(vectorstore):
     retriever = vectorstore.as_retriever()
-    llm = Ollama(model="llama3")
+    llm = Ollama(model="tinyllama")
     return RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
