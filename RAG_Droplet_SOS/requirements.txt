@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pymupdf
+pandas
+langchain
+langchain-community
+langchain-huggingface
+faiss-cpu
+python-multipart
+boto3
+PyPDF2
